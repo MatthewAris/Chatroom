@@ -20,7 +20,6 @@ int Server()
         std::string s = queue.pop();
         std::cout << "Main read: \"" << s << "\"\n";
         // TODO send to all in sockets. Be careful to synchronise.
-
     }
     return 0;
 }
@@ -36,20 +35,30 @@ int Client()
     }
     std::cout << "Connected\n";
     Queue<std::string> queue;
+
     // TODO launch a receiver thread to receive messages from the server.
+
+
     std::string s = "";
     while (1)
     {
         std::getline(std::cin, s);
         std::cout << "Sending: \"" << s << "\"" << std::endl;
+        queue.push(s);
+        break;
         // TODO send messages to the server
+
     }
     return 0;
 }
 
 int main()
 {
+    std::thread serverThread(Server);
+    std::thread clientThread (Client);
 
+    serverThread.join();
+    clientThread.join();
 }
 
 

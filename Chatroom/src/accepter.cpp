@@ -17,12 +17,6 @@ void Accepter::operator()()
     sf::Socket::Status status;
     status = listener.listen(PORT);
 
-    if (status != sf::Socket::Done)
-    {
-        std::cout << "Error Listening \n";
-        return;
-    }
-
     std::cout << "Bound to port \n";
     while (true)
     {
@@ -46,7 +40,6 @@ void Accepter::operator()()
         std::cout << ss.str();
         std::shared_ptr<Receiver> receiver = std::make_shared<Receiver>(socket, queue_);
         // TODO launch a thread to receive with the receiver
-
     }
 }
 

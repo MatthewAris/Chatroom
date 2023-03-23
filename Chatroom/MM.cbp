@@ -50,6 +50,7 @@
 		<Unit filename="include/Loop.h" />
 		<Unit filename="include/accepter.h" />
 		<Unit filename="include/list.h" />
+		<Unit filename="include/map.hpp" />
 		<Unit filename="include/queue.h" />
 		<Unit filename="include/receiver.h" />
 		<Unit filename="include/util.h" />
